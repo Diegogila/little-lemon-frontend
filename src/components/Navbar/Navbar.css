@@ -1,0 +1,39 @@
+/* nav{
+    width: 60%;
+}
+
+
+nav ul{
+    width: 100%;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+
+nav ul li > a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.6rem;
+    font-weight: bold;
+} */
+
+.burger, .menu{
+    position: fixed;
+}
+
+.burger{
+    z-index: 4;
+    top: 0;
+    left: 0;
+    display:grid;
+    place-items: center;
+    width: 50px;
+    height: 50px;
+    background-image: url('../../assets/icons/icon _hamburger_menu.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.burger .open{
+    background-image: url('../../assets/icons/X.svg');
+}

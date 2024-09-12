@@ -1,8 +1,84 @@
+@font-face {
+  font-family: 'Markazi';
+  src: url('./assets/fonts/MarkaziText-VariableFont_wght.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Markazi';
+  src: url('./assets/fonts/MarkaziText-VariableFont_wght.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Karla';
+  src: url('./assets/fonts/Karla-VariableFont_wght.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Karla';
+  src: url('./assets/fonts/Karla-VariableFont_wght.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Karla';
+  src: url('./assets/fonts/Karla-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+:root{
+  /* Color pallette */
+  --primary-color-green: #495E57;
+  --primary-color-yellow: #F4CE14;
+  --secondary-color-orange: #EE9972;
+  --secondary-color-cream:#FBDABB;
+  --secondary-color-light-gray:#EDEFEE;
+  --secondary-color-black: #333333;
+
+  /* Typography */
+  --titles-typography: 'Markazi',serif;
+  --regular-typography: 'Karla',sans-serif;
+}
+
+
 html{
   font-size: 62.5%;
 }
 
 *{
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
+}
+
+body{
+  font-family: var(--regular-typography);
+}
+
+.lead-text{
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+.cosmetic-title{
+  font-size: 6.4rem;
+  font-family: var(--titles-typography);
+  font-weight: 400;
+}
+
+.subtitle{
+  font-size: 3.6rem;
+  font-family: var(--titles-typography);
+  font-weight: 400;
+}
+button{
+  border: none;
 }

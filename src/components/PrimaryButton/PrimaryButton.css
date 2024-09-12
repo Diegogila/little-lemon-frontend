@@ -1,0 +1,9 @@
+.primary-button{
+    display: flex;
+    padding: 16px 24px;
+    border-radius: 16px;
+    border: none;
+    background-color: var(--primary-color-yellow);
+    font-weight: bold;
+    width: fit-content;
+}
