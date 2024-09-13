@@ -6,8 +6,8 @@ import logo from '../../assets/images/Logo_header.svg'
 function Header(){
     return (
         <header>
-            {/* <img src={logo} alt="logo"/> */}
             <Navbar/>
+            <img src={logo} alt="logo"/>
         </header>
     )
 }
