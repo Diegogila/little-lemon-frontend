@@ -1,29 +1,9 @@
-/* nav{
-    width: 60%;
-}
-
-
-nav ul{
-    width: 100%;
-    display: flex;
-    list-style: none;
-    justify-content: space-between;
-}
-
-nav ul li > a{
-    text-decoration: none;
-    color: black;
-    font-size: 1.6rem;
-    font-weight: bold;
-} */
-
 .menu{
     position: fixed;
 }
 
 .burger{
     z-index: 4;
-    
     display:grid;
     place-items: center;
     width: 50px;
