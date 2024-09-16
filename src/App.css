@@ -63,6 +63,18 @@ body{
   font-family: var(--regular-typography);
 }
 
+header{
+  padding: 0 20px;
+}
+
+section{
+  padding: 0 20px;
+}
+
+button{
+  background: transparent;
+}
+
 .lead-text{
   font-size: 1.8rem;
   font-weight: 300;
@@ -81,4 +93,14 @@ body{
 }
 button{
   border: none;
+}
+
+@media (min-width: 768px) {
+  header{
+      padding: 0 70px;
+  }
+
+  section{
+      padding: 0 70px;
+  }
 }

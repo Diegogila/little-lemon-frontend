@@ -2,6 +2,8 @@
     position: fixed;
 }
 
+
+
 .burger{
     z-index: 4;
     display:grid;
@@ -12,7 +14,7 @@
     background-image: url('../../assets/icons/icon _hamburger_menu.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-color: white;
+    
 }
 
 .burger.open {

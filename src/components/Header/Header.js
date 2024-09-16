@@ -6,11 +6,14 @@ import { NavMenu } from "../NavMenu/NavMenu";
 
 
 function Header(){
-    const [isMobile, setIsMobile] = React.useState(false)
+    const [displayWidth, setDisplayWidth] = React.useState(0)
+
+    const isMobile = () => displayWidth < 991 ? true : false;
+
     React.useEffect(() => {
+        setDisplayWidth(window.innerWidth)
         const handleResize = () => {
-            setIsMobile(window.innerWidth < 991 ? true : false)
-            console.log(isMobile)
+            setDisplayWidth(window.innerWidth)
         }
 
         window.addEventListener('resize',handleResize);
@@ -20,9 +23,9 @@ function Header(){
     },[])
     return (
         <header>
-            {isMobile && <Navbar/>}
+            {isMobile() && <Navbar/>}
             <img src={logo} alt="logo"/>
-            {!isMobile && <NavMenu/>}
+            {!isMobile() && <NavMenu/>}
         </header>
     )
 }

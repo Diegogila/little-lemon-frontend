@@ -18,7 +18,7 @@ function Hero(){
             <PrimaryButton text='Reserve a table' onclick={() => console.log('reserved')}/>
         </div>
         <div className="hero-section__image-container">
-            {/* <img src={image} alt='Restaurant food'/> */}
+            <img src={image} alt='Restaurant food'/>
         </div>
       </section>
     );
