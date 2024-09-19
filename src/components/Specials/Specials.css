@@ -1,5 +1,6 @@
 .specials-section{
-    margin-top: 90px;
+    overflow:auto;
+    padding: 120px 0;
 }
 
 .specials__title{
@@ -7,4 +8,11 @@
     width: 100%;
     align-items: center;
     justify-content: space-between;
+    padding: 0 20px 60px 20px;
+}
+
+@media (min-width: 768px) {
+    .specials__title{
+        padding: 0 70px 60px 70px;
+    }
 }

@@ -1,0 +1,27 @@
+.card-container{
+    width: 100%;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    display: flex;
+    justify-content: flex-start;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    margin: auto;
+}
+
+.card-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card-track{
+      display: flex;
+      gap: 28px;
+      padding: 0 20px;
+    }
+
+@media (min-width: 768px) {
+    .card-track{
+        padding: 0 70px;
+    }
+}
+

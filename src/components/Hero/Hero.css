@@ -1,11 +1,11 @@
 .hero-section{
     margin-top: 10vh;
     display: grid;
-    height: 80vh;
-    grid-template-rows:1fr 1fr;
+    grid-template-rows:1fr auto;
     justify-items: center;
     background-color: var(--primary-color-green);
     color: var(--secondary-color-light-gray);
+    padding: 20px;
 }
 
 .hero-section__image-container{
@@ -13,12 +13,13 @@
     display: grid;
     place-items: center;
     width: 100%;
+    height: auto;
 }
 
 .hero-section__image-container img{
     position: relative;
-    width: 50%;
-    min-width: 365px;
+    top: 10.0rem;
+    width: 80%;
     border-radius: 8px;
 }
 
@@ -27,7 +28,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 32px;
-    padding: 36px;
+    padding: 60px 0 0 0;
 }
 
 .hero-section__titles h1{
@@ -45,9 +46,14 @@
         height: auto;
         grid-template-rows: none;
         grid-template-columns: 1fr 1fr;
+        padding: 0 70px;
     }
 
     .hero-section__image-container img{
-        top: 6.0rem;
+        top: 10.0rem;
+        width: 80%;
+    }
+    .hero-section__text{
+        padding: 60px 0 60px 0;
     }
 }

@@ -48,7 +48,7 @@
   --regular-typography: 'Karla',sans-serif;
 }
 
-
+/*---------Global tags--------*/
 html{
   font-size: 62.5%;
 }
@@ -63,17 +63,21 @@ body{
   font-family: var(--regular-typography);
 }
 
+
 header{
   padding: 0 20px;
 }
-
 section{
-  padding: 0 20px;
+  padding: 120px 20px;
 }
 
 button{
   background: transparent;
+  border: none;
 }
+
+
+/*---------Typography--------*/
 
 .lead-text{
   font-size: 1.8rem;
@@ -97,9 +101,20 @@ button{
   font-family: var(--titles-typography);
   font-weight: 400;
 }
-button{
-  border: none;
+
+.card-title{
+  font-size: 1.8rem;
+  font-family: var(--regular-typography);
+  font-weight: bold;
 }
+
+
+.description-text{
+  font-size: 1.6rem;
+  font-family: var(--regular-typography);
+  font-weight: 400;
+}
+/*---------Typography--------*/
 
 @media (min-width: 768px) {
   header{
@@ -107,6 +122,6 @@ button{
   }
 
   section{
-      padding: 0 70px;
+      padding: 120px 70px;
   }
 }

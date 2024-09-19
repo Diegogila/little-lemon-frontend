@@ -3,31 +3,58 @@
     grid-template-rows: 50% 50%;
     width: 268px;
     height: 484px;
-    background-color: beige;
+    background-color: var(--secondary-color-light-gray);
     border-radius: 8px;
-    margin-bottom: 30px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    scroll-snap-align: center;
 }
 
 
 
 .highlight-card__content{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     padding: 0 24px;
     justify-items: start;
     align-items: center;
 }
 
+.highlight-card__title{
+    grid-column: span 2;
+}
+
+.highlight-card__img{
+    overflow: hidden;
+    height: 100%;
+}
+
 .highlight-card__price{
+    color: var(--secondary-color-orange);
     justify-self: end;
 }
 
 .highlight-card__description{
-    grid-column: span 2;
+    align-self: start;
+    color: var(--primary-color-green);
+    grid-column: span 3;
 }
 
 .highlight-card__button{
-    grid-column: span 2;
+    display: inline-flex;
+    font-size: 1.6rem;
+    font-weight: 600;
+    grid-column: span 3;
     justify-self: center;
+    text-align: center;
+    gap: 12px;
+}
+
+.highlight-card__button span{
+    height: 16px;
+    width: 16px;
+    background-image: url('../../assets/icons/Delivery-icon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
 }
