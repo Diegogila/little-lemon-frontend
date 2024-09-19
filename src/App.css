@@ -79,6 +79,18 @@ button{
 
 /*---------Typography--------*/
 
+.display-title{
+  font-size: 5.2rem;
+  font-family: var(--regular-typography);
+  font-weight: 400;
+}
+
+.cosmetic-title{
+  font-size: 6.4rem;
+  font-family: var(--titles-typography);
+  font-weight: 400;
+}
+
 .lead-text{
   font-size: 1.8rem;
   font-weight: 300;
@@ -88,12 +100,6 @@ button{
   font-size: 4.8rem;
   font-weight: bold;
   font-family: var(--titles-typography);
-}
-
-.cosmetic-title{
-  font-size: 6.4rem;
-  font-family: var(--titles-typography);
-  font-weight: 400;
 }
 
 .subtitle{
