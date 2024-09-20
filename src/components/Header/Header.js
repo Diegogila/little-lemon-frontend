@@ -1,8 +1,8 @@
 import React from "react";
-import Navbar from '../Navbar/Navbar'
+import Navbar from '../navs/Navbar/Navbar'
 import './Header.module.css'
 import logo from '../../assets/images/Logo_header.svg'
-import { NavMenu } from "../NavMenu/NavMenu";
+import { NavMenu } from "../navs/NavMenu/NavMenu";
 
 
 function Header(){

@@ -54,7 +54,7 @@
 .highlight-card__button span{
     height: 16px;
     width: 16px;
-    background-image: url('../../assets/icons/Delivery-icon.svg');
+    background-image: url('../../../assets/icons/Delivery-icon.svg');
     background-repeat: no-repeat;
     background-position: center;
 }

@@ -60,6 +60,7 @@ html{
 }
 
 body{
+  width: 100vw;
   font-family: var(--regular-typography);
 }
 
@@ -71,9 +72,20 @@ section{
   padding: 120px 20px;
 }
 
+footer{
+  grid-auto-flow: row;
+  padding: 64px 20px;
+}
+
+/*-----------global-tags---------------*/
+
 button{
   background: transparent;
   border: none;
+}
+
+li{
+  list-style: none;
 }
 
 
@@ -129,5 +141,9 @@ button{
 
   section{
       padding: 120px 70px;
+  }
+  footer{
+    padding: 64px 70px;
+    grid-auto-flow: column;
   }
 }

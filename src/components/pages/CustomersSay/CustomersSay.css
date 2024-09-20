@@ -1,16 +1,16 @@
-.testimonials-section{
+.customers-say-section{
     background-color: var(--primary-color-green);
     overflow:auto;
     padding: 120px 0;
 }
 
-.testimonials-section__title{
+.customers-say-section__title{
     color: white;
     padding: 0 20px 60px 20px;
 }
 
 @media (min-width: 768px) {
-    .testimonials-section__title{
+    .customers-say-section__title{
         padding: 0 70px 60px 70px;
     }
 }

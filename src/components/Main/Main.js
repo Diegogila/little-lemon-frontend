@@ -1,16 +1,16 @@
-import AboutUs from '../AboutUs/AboutUs';
-import Hero from '../Hero/Hero';
-import Specials from '../Specials/Specials';
-import Testimonials from '../Testimonials/Testimonials';
+import Homepage from '../pages/Homepage/Homepage';
+import Specials from '../pages/Specials/Specials';
 import './Main.module.css'
+import CustomersSay from '../pages/CustomersSay/CustomersSay';
+import Chicago from '../pages/Chicago/Chicago';
 
 function Main(){
     return (
         <main>
-            <Hero/>
+            <Homepage/>
             <Specials/>
-            <Testimonials/>
-            <AboutUs/>
+            <CustomersSay/>
+            <Chicago/>
         </main>
     )
 }

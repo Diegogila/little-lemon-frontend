@@ -1,14 +1,14 @@
-import './AboutUs.css'
-import image1 from '../../assets/images/restaurant.jpg'
-import image2 from '../../assets/images/restaurant-chef-B.jpg'
+import './Chicago.css'
+import image1 from '../../../assets/images/restaurant.jpg'
+import image2 from '../../../assets/images/restaurant-chef-B.jpg'
 
 
-function AboutUs(){
+function Chicago(){
     return (
-      <section className="AboutUs-section">
-        <article className="AboutUs-section__container">
-          <div className="AboutUs-section__info">
-            <div className='AboutUs-section__titles'>
+      <section className="chicago-section">
+        <article className="chicago-section__container">
+          <div className="chicago-section__info">
+            <div className='chicago-section__titles'>
                 <h1 className='display-title'>Little Lemon</h1>
                 <h2 className='subtitle'>Chicago</h2>
             </div>
@@ -21,7 +21,7 @@ function AboutUs(){
               nulla pariatur.
             </p>
           </div>
-          <div className="AboutUs-section__image">
+          <div className="chicago-section__image">
             <img src={image1} alt="retaurant" />
             <img src={image2} alt="chef" />
           </div>
@@ -30,4 +30,4 @@ function AboutUs(){
     );
 }
 
-export default AboutUs;
+export default Chicago;

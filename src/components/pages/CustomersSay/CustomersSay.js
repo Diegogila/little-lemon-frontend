@@ -1,9 +1,9 @@
-import CardContainer from '../CardContainer/CardContainer';
-import TestimonialCard from '../TestimonialCard.css/TestimonialCard';
-import './Testimonials.css'
-import adrianImage from '../../assets/images/adrian.png'
-import sofiaImage from '../../assets/images/sofia.png'
-import marceloImage from '../../assets/images/marcelo.png'
+import CardContainer from '../../cards/CardContainer/CardContainer';
+import TestimonialCard from '../../cards/TestimonialCard.css/TestimonialCard';
+import './CustomersSay.css'
+import adrianImage from '../../../assets/images/adrian.png'
+import sofiaImage from '../../../assets/images/sofia.png'
+import marceloImage from '../../../assets/images/marcelo.png'
 
 const testimonials = [
     {
@@ -26,10 +26,10 @@ const testimonials = [
     },
 ]
 
-function Testimonials(){
+function CustomersSay(){
     return (
-        <section className="testimonials-section">
-            <h2 className='testimonials-section__title section-title'>Testimonials</h2>
+        <section className="customers-say-section">
+            <h2 className='customers-say-section__title section-title'>Testimonials</h2>
             <CardContainer>
                 {testimonials.map((tm,i) => {
                     return <TestimonialCard 
@@ -44,4 +44,4 @@ function Testimonials(){
     )
 }
 
-export default Testimonials;
+export default CustomersSay;

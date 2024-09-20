@@ -1,10 +1,10 @@
-import CardContainer from "../CardContainer/CardContainer";
-import { PrimaryButton } from "../PrimaryButton/PrimaryButton";
-import HighlightCard from "../HighlightCard/HighlightCard";
+import CardContainer from "../../cards/CardContainer/CardContainer";
+import HighlightCard from "../../cards/HighlightCard/HighlightCard";
 import "./Specials.css";
-import greekSaladImage from "../../assets/images/greek-salad.jpg";
-import bruchettaImage from "../../assets/images/bruchetta.svg";
-import lemonDessertImage from "../../assets/images/lemon-dessert.jpg";
+import greekSaladImage from "../../../assets/images/greek-salad.jpg";
+import bruchettaImage from "../../../assets/images/bruchetta.svg";
+import lemonDessertImage from "../../../assets/images/lemon-dessert.jpg";
+import { CallToAction } from "../../CallToAction/CallToAction";
 
 const recipes = [
   {
@@ -35,7 +35,7 @@ function Specials() {
     <section className="specials-section">
       <div className="specials__title">
         <h2 className="section-title">This week specials!</h2>
-        <PrimaryButton text="Online Menu" />
+        <CallToAction text="Online Menu" />
       </div>
       <CardContainer>
         {recipes.map((hl,i) => {

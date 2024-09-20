@@ -1,5 +1,5 @@
 import './TestimonialCard.css'
-import starIcon from '../../assets/icons/star.svg'
+import starIcon from '../../../assets/icons/star.svg'
 
 function TestimonialCard({name,image,rate,comment}){
   console.log(name,rate)

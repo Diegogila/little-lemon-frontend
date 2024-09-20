@@ -1,12 +1,12 @@
-import { PrimaryButton } from '../PrimaryButton/PrimaryButton';
-import './Hero.css'
-import image from '../../assets/images/restauranfood.jpg'
+import './Homepage.css'
+import image from '../../../assets/images/restauranfood.jpg'
+import { CallToAction } from '../../CallToAction/CallToAction';
 
-function Hero(){
+function Homepage(){
     return (
-      <section className="hero-section">
-        <div className="hero-section__text">
-            <div className='hero-section__titles'>
+      <section className="homepage-section">
+        <div className="homepage-section__text">
+            <div className='homepage-section__titles'>
                 <h1 className='cosmetic-title'>Little Lemon</h1>
                 <h2 className='subtitle'>Chicago</h2>
             </div>
@@ -15,13 +15,13 @@ function Hero(){
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam
           </p>
-            <PrimaryButton text='Reserve a table' onclick={() => console.log('reserved')}/>
+            <CallToAction text='Reserve a table' onclick={() => console.log('reserved')}/>
         </div>
-        <div className="hero-section__image-container">
+        <div className="homepage-section__image-container">
             <img src={image} alt='Restaurant food'/>
         </div>
       </section>
     );
 }
 
-export default Hero;
+export default Homepage;
