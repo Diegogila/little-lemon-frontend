@@ -2,7 +2,6 @@ import './TestimonialCard.css'
 import starIcon from '../../../assets/icons/star.svg'
 
 function TestimonialCard({name,image,rate,comment}){
-  console.log(name,rate)
   return (
       <article className="testimonial-card">
         <h3 className="testimonial-card__title card-title">{name}</h3>

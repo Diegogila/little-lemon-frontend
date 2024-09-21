@@ -1,6 +1,6 @@
 import './Chicago.css'
-import image1 from '../../../assets/images/restaurant.jpg'
-import image2 from '../../../assets/images/restaurant-chef-B.jpg'
+import image1 from '../../../../assets/images/restaurant.jpg'
+import image2 from '../../../../assets/images/restaurant-chef-B.jpg'
 
 
 function Chicago(){

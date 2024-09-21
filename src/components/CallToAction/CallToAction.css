@@ -6,4 +6,5 @@
     background-color: var(--primary-color-yellow);
     font-weight: bold;
     width: fit-content;
+    cursor: pointer;
 }

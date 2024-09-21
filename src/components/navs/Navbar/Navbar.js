@@ -1,13 +1,10 @@
 import React from "react";
 import './Navbar.css'
+import { Link } from "react-router-dom";
 
 const links = [
-    'Home',
-    'About',
-    'Menu',
-    'Reservations',
-    'Order online',
-    'Login',
+    {page:'Home',route:'/'},
+    {page:'Booking',route:'/booking'}
 ]
 
 function Navbar(){
@@ -26,16 +23,14 @@ function Navbar(){
             <div className={`menu ${isOpen}`}>
                 <nav>
                     {links.map((link,index) => (
-                        <a
-                            href='/'
-                            key={index}
+                        <Link                             key={index}
                             className={isMenuOpen ? "appear" : ""}
                             style={{
-                                animationDelay: `0.${index+1}s`
-                            }}
-                            onClick={() => console.log(link)}
-                            >{link}</a>
-                    ))}
+                            animationDelay: `0.${index+1}s`}}
+                            to={link.route}>
+                                {link.page}
+                        </Link>
+                    ))};
                 </nav>
             </div>
         </>

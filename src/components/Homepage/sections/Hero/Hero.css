@@ -1,4 +1,4 @@
-.homepage-section{
+.hero-section{
     display: grid;
     grid-template-rows:1fr auto;
     justify-items: center;
@@ -7,7 +7,7 @@
     padding: 20px;
 }
 
-.homepage-section__image-container{
+.hero-section__image-container{
     position: relative;
     display: grid;
     place-items: center;
@@ -15,14 +15,14 @@
     height: auto;
 }
 
-.homepage-section__image-container img{
+.hero-section__image-container img{
     position: relative;
     top: 10.0rem;
     width: 80%;
     border-radius: 8px;
 }
 
-.homepage-section__text{
+.hero-section__text{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,29 +30,29 @@
     padding: 60px 0 0 0;
 }
 
-.homepage-section__titles h1{
+.hero-section__titles h1{
     color: var(--primary-color-yellow);
     line-height: 50px;
     padding-bottom: 10px;
 }
 
-.homepage-section__titles h2{
+.hero-section__titles h2{
     line-height: 30px;
 }
 
 @media (min-width: 768px) {
-    .homepage-section{
+    .hero-section{
         height: auto;
         grid-template-rows: none;
         grid-template-columns: 1fr 1fr;
         padding: 0 70px;
     }
 
-    .homepage-section__image-container img{
+    .hero-section__image-container img{
         top: 10.0rem;
         width: 80%;
     }
-    .homepage-section__text{
+    .hero-section__text{
         padding: 60px 0 60px 0;
     }
 }

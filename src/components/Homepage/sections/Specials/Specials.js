@@ -1,10 +1,10 @@
-import CardContainer from "../../cards/CardContainer/CardContainer";
-import HighlightCard from "../../cards/HighlightCard/HighlightCard";
+import CardContainer from "../../../cards/CardsContainer/CardsContainer";
+import HighlightCard from "../../../cards/HighlightCard/HighlightCard";
 import "./Specials.css";
-import greekSaladImage from "../../../assets/images/greek-salad.jpg";
-import bruchettaImage from "../../../assets/images/bruchetta.svg";
-import lemonDessertImage from "../../../assets/images/lemon-dessert.jpg";
-import { CallToAction } from "../../CallToAction/CallToAction";
+import greekSaladImage from "../../../../assets/images/greek-salad.jpg";
+import bruchettaImage from "../../../../assets/images/bruchetta.svg";
+import lemonDessertImage from "../../../../assets/images/lemon-dessert.jpg";
+import { CallToAction } from "../../../CallToAction/CallToAction";
 
 const recipes = [
   {

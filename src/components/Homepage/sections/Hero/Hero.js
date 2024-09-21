@@ -1,12 +1,12 @@
-import './Homepage.css'
-import image from '../../../assets/images/restauranfood.jpg'
-import { CallToAction } from '../../CallToAction/CallToAction';
+import './Hero.css'
+import image from '../../../../assets/images/restauranfood.jpg'
+import { CallToAction } from '../../../CallToAction/CallToAction';
 
-function Homepage(){
+function Hero(){
     return (
-      <section className="homepage-section">
-        <div className="homepage-section__text">
-            <div className='homepage-section__titles'>
+      <section className="hero-section">
+        <div className="hero-section__text">
+            <div className='hero-section__titles'>
                 <h1 className='cosmetic-title'>Little Lemon</h1>
                 <h2 className='subtitle'>Chicago</h2>
             </div>
@@ -17,11 +17,11 @@ function Homepage(){
           </p>
             <CallToAction text='Reserve a table' onclick={() => console.log('reserved')}/>
         </div>
-        <div className="homepage-section__image-container">
+        <div className="hero-section__image-container">
             <img src={image} alt='Restaurant food'/>
         </div>
       </section>
     );
 }
 
-export default Homepage;
+export default Hero;

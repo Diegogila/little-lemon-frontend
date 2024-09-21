@@ -1,9 +1,9 @@
-import CardContainer from '../../cards/CardContainer/CardContainer';
-import TestimonialCard from '../../cards/TestimonialCard.css/TestimonialCard';
+import CardContainer from '../../../cards/CardsContainer/CardsContainer';
+import TestimonialCard from '../../../cards/TestimonialCard.css/TestimonialCard';
 import './CustomersSay.css'
-import adrianImage from '../../../assets/images/adrian.png'
-import sofiaImage from '../../../assets/images/sofia.png'
-import marceloImage from '../../../assets/images/marcelo.png'
+import adrianImage from '../../../../assets/images/adrian.png'
+import sofiaImage from '../../../../assets/images/sofia.png'
+import marceloImage from '../../../../assets/images/marcelo.png'
 
 const testimonials = [
     {

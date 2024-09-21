@@ -68,6 +68,12 @@ body{
 header{
   padding: 0 20px;
 }
+
+main{
+  display: grid;
+  margin-top: 10vh;
+}
+
 section{
   padding: 120px 20px;
 }
