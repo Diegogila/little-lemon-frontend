@@ -8,6 +8,7 @@ import { BookingConfirmation } from "./sections/BookingConfirmation/BookingConfi
 import { BookingCompleted } from "./sections/BookingCompleted/BookingCompleted";
 
 function BookingPage() {
+
   const [bookingData, setBookingData] = useState({
     name: "",
     tel: "",
@@ -20,7 +21,7 @@ function BookingPage() {
 
   return (
     <>
-      <Header/>
+      <Header isSection={true}/>
       <main className="booking-page">
         <Routes>
           <Route path='/' element={<BookingForm data={bookingData} setData={setBookingData}/>}/>

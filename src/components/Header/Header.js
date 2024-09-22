@@ -1,11 +1,12 @@
 import React from "react";
 import Navbar from '../navs/Navbar/Navbar'
-import './Header.module.css'
+import './Header.css'
 import logo from '../../assets/images/Logo_header.svg'
 import { NavMenu } from "../navs/NavMenu/NavMenu";
+import GoBack from "../navs/GoBack/Goback";
 
 
-function Header(){
+function Header({isSection=false}){
     const [displayWidth, setDisplayWidth] = React.useState(0)
 
     const isMobile = () => displayWidth < 991 ? true : false;
@@ -22,11 +23,11 @@ function Header(){
         }
     },[])
     return (
-        <header>
-            {isMobile() && <Navbar/>}
-            <img src={logo} alt="logo"/>
-            {!isMobile() && <NavMenu/>}
-        </header>
+            <header className={isSection ? "is-section" : "is-home"}>
+                {isSection && <GoBack/> }
+                <img src={logo} alt="logo"/>
+                {isMobile() ? <Navbar/> : <NavMenu/>}
+            </header>
     )
 }
 

@@ -7,17 +7,18 @@ const links = [
     {page:'Booking',route:'/booking'}
 ]
 
+
 function Navbar(){
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+    const toggleBurgerMenu = () => setIsMenuOpen(!isMenuOpen);
 
     const isOpen = isMenuOpen ? 'open':'';
     return (
         <>
             <button
-                className={`burger ${isOpen}`}
-                onClick={toggleMenu}
+                className={`header-button burger ${isOpen}`}
+                onClick={toggleBurgerMenu}
             ></button>
             <div className={`background ${isOpen}`}></div>
             <div className={`menu ${isOpen}`}>
