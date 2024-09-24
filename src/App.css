@@ -119,6 +119,7 @@ li{
   font-size: 4.8rem;
   font-weight: bold;
   font-family: var(--titles-typography);
+  color: var(--secondary-color-black);
 }
 
 .subtitle{
@@ -136,6 +137,12 @@ li{
 
 .description-text{
   font-size: 1.6rem;
+  font-family: var(--regular-typography);
+  font-weight: 400;
+}
+
+.input-label{
+  font-size: 1.8rem;
   font-family: var(--regular-typography);
   font-weight: 400;
 }

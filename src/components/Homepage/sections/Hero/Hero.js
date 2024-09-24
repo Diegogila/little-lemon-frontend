@@ -1,8 +1,14 @@
 import './Hero.css'
 import image from '../../../../assets/images/restauranfood.jpg'
 import { CallToAction } from '../../../CallToAction/CallToAction';
+import { useNavigate } from 'react-router-dom';
 
 function Hero(){
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/booking');
+  }
+
     return (
       <section className="hero-section">
         <div className="hero-section__text">
@@ -15,7 +21,7 @@ function Hero(){
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam
           </p>
-            <CallToAction text='Reserve a table' onclick={() => console.log('reserved')}/>
+            <CallToAction text='Reserve a table' onclick={handleClick}/>
         </div>
         <div className="hero-section__image-container">
             <img src={image} alt='Restaurant food'/>
