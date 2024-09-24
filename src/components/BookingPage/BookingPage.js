@@ -8,25 +8,14 @@ import { BookingConfirmation } from "./sections/BookingConfirmation/BookingConfi
 import { BookingCompleted } from "./sections/BookingCompleted/BookingCompleted";
 
 function BookingPage() {
-  const [isSection, setIsSection] = useState(true); 
-  const initialFormState = {
-    name: "",
-    tel: "",
-    email: "",
-    date: "",
-    time: "",
-    guests: 1,
-    terrace: false,
-  }
-
-  const [bookingData, setBookingData] = useState(initialFormState);
+  const [isSection, setIsSection] = useState(true);
 
   return (
     <>
       <Header isSection={isSection}/>
       <main className="booking-page">
         <Routes>
-          <Route path='/' element={<BookingForm data={bookingData} setData={setBookingData}/>}/>
+          <Route path='/' element={<BookingForm/>}/>
           <Route path='confirmation' element={<BookingConfirmation/>}/>
           <Route path='completed' element={<BookingCompleted setIsSection={setIsSection}/>}/>
         </Routes>

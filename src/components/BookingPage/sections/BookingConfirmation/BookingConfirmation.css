@@ -1,0 +1,53 @@
+.booking-confirmation{
+    display: grid;
+    padding: 60px 0;
+}
+
+.booking__confirmacion-table{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.booking-confirmation > p{
+    font-size: 2.0rem;
+    font-weight: 600;
+}
+
+.booking-confirmation > *:not(.booking__name-confirmation):not(button) {
+    padding: 0 20px;
+  }
+
+.booking__confirmacion-table p{
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.booking-confirmation .description-text{
+    text-align: center;
+}
+
+.booking-confirmation .lead-text{
+    color: var(--primary-color-green);
+    font-weight: 400;
+    justify-self: end;
+}
+
+.booking__name-confirmation{
+    width: 100%;
+    background-color: var(--primary-color-green);
+    color: white;
+}
+
+.description-text{
+    
+}
+
+@media (min-width: 768px) {
+    .booking-page{
+        place-items: center;
+    }
+    .booking-confirmation{
+        margin: 120px 0;
+        width: 50%;
+    }
+
+  }

@@ -110,6 +110,11 @@ li{
   font-weight: 400;
 }
 
+.lead-subtitle{
+  font-size: 2.0rem;
+  font-weight: 600;
+}
+
 .lead-text{
   font-size: 1.8rem;
   font-weight: 300;

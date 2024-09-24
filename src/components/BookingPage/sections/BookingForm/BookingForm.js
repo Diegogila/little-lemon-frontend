@@ -2,18 +2,44 @@ import { useNavigate } from "react-router-dom";
 import { CallToAction } from "../../../CallToAction/CallToAction";
 import bg from "../../../../assets/images/restaurant.jpg";
 import "./BookingForm.css";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
-function BookingForm({ data, setData }) {
+function BookingForm() {
   const navigate = useNavigate();
-  const handleChange = (e) => {
-    const { name, type, value, checked } = e.target;
-    setData({ ...data, [name]: type === "checkbox" ? checked : value });
+
+
+  const handleSumit = (values) => {
+    navigate("/booking/confirmation", { state: values });
   };
 
-  const handleSumit = (e) => {
-    navigate("/booking/confirmation", { state: data });
-    e.preventDefault();
+  const initialFormState = {
+    name: "",
+    tel: "",
+    email: "",
+    date: "",
+    time: "",
+    guests: 1,
+    terrace: false,
   };
+
+
+  //-------------Validation-----------------------
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required("The name is required"),
+    tel: Yup.number()
+      .integer()
+      .positive()
+      .required("The telephone is required"),
+    email: Yup.string()
+      .email("We need a valid email")
+      .required("Email is required"),
+    date: Yup.date().required("Date is required").min(new Date()),
+    time: Yup.string().required("We need a time"),
+    guests: Yup.number().positive().integer(),
+  });
+  //-------------------------------------------------------
+
   return (
     <>
       <img className="booking-page__img" src={bg} alt="Restaurant" />
@@ -29,109 +55,121 @@ function BookingForm({ data, setData }) {
           </p>
         </div>
         <div className="booking__form-container">
-          <form>
-            <h3 className="card-title">Contant Information</h3>
-            <label className="input-label" htmlFor="bookingName">
-              Full Name
-            </label>
-            <input
-              value={data.name}
-              onChange={handleChange}
-              name="name"
-              type="text"
-              id="bookingName"
-              required
-            />
+          <Formik
+            initialValues={initialFormState}
+            validationSchema={validationSchema}
+            onSubmit={handleSumit}
+          >
+            {() => (
+              <Form>
+                <div className="input-div">
+                  <label className="input-label">Name</label>
+                  <Field type="text" name="name" />
+                  <ErrorMessage
+                    name="name"
+                    component="span"
+                    style={{ color: "red" }}
+                  />
+                </div>
+                <div className="input-div">
+                  <label className="input-label">Telephone</label>
+                  <Field type="number" name="tel" />
+                  <ErrorMessage
+                    name="tel"
+                    component="span"
+                    style={{ color: "red" }}
+                  />
+                </div>
+                <div className="input-div">
+                  <label className="input-label">Email</label>
+                  <Field type="email" name="email" />
+                  <ErrorMessage
+                    name="email"
+                    component="span"
+                    style={{ color: "red" }}
+                  />
+                </div>
 
-            <label className="input-label" htmlFor="bookingTelephone">
-              Telephone
-            </label>
-            <input
-              value={data.tel}
-              onChange={handleChange}
-              name="tel"
-              type="tel"
-              id="bookingTelephone"
-              required
-            />
+                <h3 className="card-title">Reservation Information</h3>
 
-            <label className="input-label" htmlFor="bookingEmail">
-              Email
-            </label>
-            <input
-              value={data.email}
-              onChange={handleChange}
-              name="email"
-              type="email"
-              id="bookingEmail"
-              required
-            />
-
-            <h3 className="card-title">Reservation Information</h3>
-
-            <label className="input-label" htmlFor="bookingDate">
-              Date
-            </label>
-            <input
-              value={data.date}
-              onChange={handleChange}
-              name="date"
-              type="date"
-              id="bookingDate"
-              min={new Date().toISOString().split("T")[0]}
-              required
-            />
-
-            <label className="input-label" htmlFor="bookingTime">
-              Time
-            </label>
-            <select id="bookingTime" value={data.time} onChange={handleChange} name="time" required>
-              <option value="">Select a time</option>
-              <option value="09:00">09:00</option>
-              <option value="10:00">10:00</option>
-              <option value="11:00">11:00</option>
-              <option value="12:00">12:00</option>
-              <option value="13:00">13:00</option>
-              <option value="14:00">14:00</option>
-              <option value="15:00">15:00</option>
-              <option value="16:00">16:00</option>
-              <option value="17:00">17:00</option>
-              <option value="18:00">18:00</option>
-            </select>
-
-            <label className="input-label" htmlFor="bookingGuests">
-              Guests
-            </label>
-            <input
-              value={data.guests}
-              onChange={handleChange}
-              name="guests"
-              type="number"
-              id="bookingGuests"
-              required
-            />
-
-            <h3 className="card-title">Details</h3>
-            <div className="input-container">
-              <label className="input-label" htmlFor="bookingTerrace">
-                Terrace
-              </label>
-              <input
-                className="input-checkbox"
-                checked={data.terrace}
-                onChange={handleChange}
-                name="terrace"
-                type="checkbox"
-                id="bookingTerrace"
-              />
-            </div>
-            <CallToAction
-              type="submit"
-              className="booking-form__submit"
-              text="Submit"
-              onClick={handleSumit}
-            />
-          </form>
+                <div className="input-div">
+                  <label className="input-label" htmlFor="bookingDate">
+                    Date
+                  </label>
+                  <Field
+                    name="date"
+                    type="date"
+                    id="bookingDate"
+                    min={new Date().toISOString().split("T")[0]}
+                    className="input-field"
+                  />
+                  <ErrorMessage
+                    name="date"
+                    component="span"
+                    style={{ color: "red" }}
+                  />
+                </div>
+                <div className="input-div">
+                  <label className="input-label" htmlFor="bookingTime">
+                    Time
+                  </label>
+                  <Field
+                    as="select"
+                    name="time"
+                    id="bookingTime"
+                    className="input-field"
+                  >
+                    <option value="">Select a time</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                    <option value="18:00">18:00</option>
+                  </Field>
+                  <ErrorMessage
+                    name="time"
+                    component="span"
+                    style={{ color: "red" }}
+                  />
+                </div>
+                <div className="input-container">
+                  <label className="input-label" htmlFor="bookingGuests">
+                    Guests
+                  </label>
+                  <Field
+                    name="guests"
+                    type="number"
+                    min="1"
+                    id="bookingGuests"
+                    className="input-number"
+                  />
+                  <ErrorMessage
+                    name="guests"
+                    component="span"
+                    style={{ color: "red" }}
+                  />
+                </div>
+                <h3 className="card-title">Details</h3>
+                <div className="input-container">
+                  <label className="input-label" htmlFor="bookingTerrace">
+                    Terrace
+                  </label>
+                  <Field
+                    name="terrace"
+                    type="checkbox"
+                    id="bookingTerrace"
+                    className="input-checkbox"
+                  />
+                </div>
+                <CallToAction className="booking-form__submit" text="Submit" type="submit"/>
+              </Form>
+            )}
+          </Formik>
         </div>
       </section>
     </>

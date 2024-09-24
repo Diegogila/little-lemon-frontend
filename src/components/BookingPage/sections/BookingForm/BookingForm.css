@@ -31,17 +31,22 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 16px;
     height: 28px;
-    margin-top: 14px;
     padding: 0 12px;
 }
 
-.booking__form-container input, h3,select{
+.booking__form-container .input-div, h3, .input-container{
     margin-bottom: 24px;
 }
-
-.booking__form-container label{
-    margin-bottom: 14px;
+.input-div{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 }
+
+.input-div span{
+    font-size: 1.4rem;
+}
+
 
 .input-container{
     display: flex;
@@ -67,6 +72,10 @@
 
 .booking__form-container .input-checkbox{
     box-shadow: none;
+}
+
+.booking__form-container .input-number{
+    width: 60px;
 }
 
 @media (min-width: 768px) {
