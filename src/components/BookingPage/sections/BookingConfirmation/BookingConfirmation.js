@@ -25,6 +25,8 @@ function BookingConfirmation() {
           <p className="lead-text">{data.date}</p>
           <p>Time</p>
           <p className="lead-text">{data.time}</p>
+          <p>Occasion</p>
+          <p className="lead-text">{data.occasion}</p>
           <p>Table for</p>
           <p className="lead-text">{data.guests}</p>
           <p>Details</p>

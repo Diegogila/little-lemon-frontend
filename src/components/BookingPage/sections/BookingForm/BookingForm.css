@@ -6,10 +6,16 @@
 .booking-form{
     z-index: 1;
     display: grid;
-    padding-top: 20px;
+    padding-top: 40px;
     padding-bottom: 60px;
     row-gap: 26px;
 
+}
+
+.booking-page__intro{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .booking-page__intro p{

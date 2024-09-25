@@ -5,7 +5,7 @@ import "./BookingForm.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-function BookingForm() {
+function BookingForm({availableTimes,setAvailableTimes}) {
   const navigate = useNavigate();
 
 
@@ -19,6 +19,7 @@ function BookingForm() {
     email: "",
     date: "",
     time: "",
+    occasion:"",
     guests: 1,
     terrace: false,
   };
@@ -45,7 +46,7 @@ function BookingForm() {
       <img className="booking-page__img" src={bg} alt="Restaurant" />
       <section className="booking-form">
         <div className="booking-page__intro">
-          <h2 className="section-title">Booking</h2>
+          <h2 className="section-title">Book Now!</h2>
           <p className="description-text">
             Reserve your table and enjoy a unique culinary experience. Select
             the date, time, and number of guests, and fill in your details to
@@ -120,7 +121,10 @@ function BookingForm() {
                     className="input-field"
                   >
                     <option value="">Select a time</option>
-                    <option value="09:00">09:00</option>
+                    {availableTimes.map((time,i) => {
+                      return <option key={i} value={time}>{time}</option>
+                    })}
+                    {/* <option value="09:00">09:00</option>
                     <option value="10:00">10:00</option>
                     <option value="11:00">11:00</option>
                     <option value="12:00">12:00</option>
@@ -129,7 +133,27 @@ function BookingForm() {
                     <option value="15:00">15:00</option>
                     <option value="16:00">16:00</option>
                     <option value="17:00">17:00</option>
-                    <option value="18:00">18:00</option>
+                    <option value="18:00">18:00</option> */}
+                  </Field>
+                  <ErrorMessage
+                    name="time"
+                    component="span"
+                    style={{ color: "red" }}
+                  />
+                </div>
+                <div className="input-div">
+                  <label className="input-label" htmlFor="bookingOccasion">
+                    Occasion
+                  </label>
+                  <Field
+                    as="select"
+                    name="occasion"
+                    id="bookingOccasion"
+                    className="input-field"
+                  >
+                    <option value="Casual">Casual</option>
+                    <option value="Birthday">Birthday</option>
+                    <option value="Anniversary">Anniversary</option>
                   </Field>
                   <ErrorMessage
                     name="time"
