@@ -1,3 +1,9 @@
 .booking__form-container form input{
     display: block;
 }
+
+@media (min-width: 768px) {
+    .booking-page{
+        place-items: center;
+    }
+}

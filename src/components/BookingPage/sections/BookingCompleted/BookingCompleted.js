@@ -1,11 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { CallToAction } from "../../../CallToAction/CallToAction";
 import { useEffect } from "react";
+import './BookingCompleted.css'
+import bookingCompleted from '../../../../assets/icons/Booking-completed.svg'
 
 
 function BookingCompleted({setIsSection}) {
   const navigate = useNavigate();
   const handleClick = () => {
+    alert('Reservation completed sucesfully')
     navigate('/');
   }
   useEffect(() => {
@@ -15,12 +18,16 @@ function BookingCompleted({setIsSection}) {
     return (
         <>
           <section className="booking-completed">
-            <h2>Reservation Confirmated</h2>
-            <img src="#" alt="Confirmed icon"/>
-            <p>Your reservation is confirmed.</p>
-            <p> We look forward to xwelcoming you!</p>
-            <p>If you need to make any changes, please contact us at **** or ****.</p>
-            <CallToAction text="Go Back to Home" onclick={handleClick}/>
+            <div className="booking-completed__confirmation">
+              <h2 className="booking-completed__title subtitle">Reservation Confirmated</h2>
+              <img src={bookingCompleted} alt="Confirmed icon"/>
+              <div>
+                <p className="lead-text">Your reservation is confirmed.</p>
+                <p className="lead-text"> We look forward to welcoming you!</p>
+              </div>
+            </div>
+            <p className="booking-completed__warnings description-text">If you need to make any changes, please contact us at **** or ****.</p>
+            <CallToAction className="booking-completed__button" text="Go Back to Home" onclick={handleClick}/>
           </section>
         </>
     );

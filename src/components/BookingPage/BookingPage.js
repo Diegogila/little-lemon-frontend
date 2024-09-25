@@ -6,6 +6,7 @@ import { BookingForm } from "./sections/BookingForm/BookingForm";
 import { Routes, Route } from 'react-router-dom';
 import { BookingConfirmation } from "./sections/BookingConfirmation/BookingConfirmation";
 import { BookingCompleted } from "./sections/BookingCompleted/BookingCompleted";
+import { ScrollTop } from "../../utils/ScrollTop";
 
 function BookingPage() {
   const [isSection, setIsSection] = useState(true);

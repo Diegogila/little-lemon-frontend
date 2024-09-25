@@ -1,0 +1,37 @@
+.booking-completed{
+    padding: 20px;
+    display: grid;
+    justify-items: center;
+    text-align: center;
+}
+
+.booking-completed__confirmation{
+    display: grid;
+    justify-items: center;
+    gap: 16px;
+}
+
+.booking-completed__confirmation p{
+    font-weight: 400;
+}
+
+.booking-completed__title{
+    color: var(--primary-color-green);
+}
+
+.booking-completed__button{
+    width: 80%;
+}
+
+.booking-completed__warnings{
+    margin: 38px 0;
+}
+
+
+@media (min-width: 768px) {
+    .booking-completed{
+        margin: 20px 0;
+        width: 50%;
+    }
+
+  }
