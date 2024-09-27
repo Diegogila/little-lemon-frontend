@@ -12,6 +12,7 @@ header{
 
 header img{
     height: 50%;
+    cursor: pointer;
 }
 
 .header-button{
