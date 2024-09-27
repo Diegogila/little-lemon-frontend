@@ -1,39 +1,37 @@
-
-import { CallToAction } from "../../../CallToAction/CallToAction";
+import { useNavigate } from "react-router-dom";
 import bg from "../../../../assets/images/restaurant.jpg";
+import { CallToAction } from "../../../CallToAction/CallToAction";
 import "./BookingForm.css";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
+import {useState } from "react";
 
-function BookingForm({availableTimes,submitForm,setAvailableTimes}) {
+function BookingForm({ formState, setFormState, availableTimes, dispatch }) {
+  const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
 
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    if (type === "date") {
+      dispatch({ type: "update", date: new Date(value) });
+    }
 
-  const initialFormState = {
-    name: "",
-    tel: "",
-    email: "",
-    date: "",
-    time: "",
-    occasion:"",
-    guests: 1,
-    terrace: false,
+    setFormState({
+      ...formState,
+      [name]: type === "checkbox" ? checked : value,
+    });
   };
 
+  const handleSubmit = (e) => {
+    if (Object.values(errors).includes(false)) {
+      navigate("/booking/confirmation");
+    }
+  };
 
   //-------------Validation-----------------------
-  const validationSchema = Yup.object().shape({
-    name: Yup.string().required("The name is required"),
-    tel: Yup.number()
-      .integer()
-      .positive()
-      .required("The telephone is required"),
-    email: Yup.string()
-      .email("We need a valid email")
-      .required("Email is required"),
-    date: Yup.date().required("Date is required").min(new Date()),
-    time: Yup.string().required("We need a time"),
-    guests: Yup.number().positive().integer(),
-  });
+  const validateForm = (e) => {
+    const { name } = e.target;
+    if (!formState[name]) setErrors({ ...errors, [name]: true });
+    else setErrors({ ...errors, [name]: false });
+  };
   //-------------------------------------------------------
 
   return (
@@ -51,144 +49,166 @@ function BookingForm({availableTimes,submitForm,setAvailableTimes}) {
           </p>
         </div>
         <div className="booking__form-container">
-          <Formik
-            initialValues={initialFormState}
-            validationSchema={validationSchema}
-            onSubmit={submitForm}
-          >
-            {() => (
-              <Form>
-                <div className="input-div">
-                  <label className="input-label">Name</label>
-                  <Field type="text" name="name" />
-                  <ErrorMessage
-                    name="name"
-                    component="span"
-                    style={{ color: "red" }}
-                  />
-                </div>
-                <div className="input-div">
-                  <label className="input-label">Telephone</label>
-                  <Field type="number" name="tel" />
-                  <ErrorMessage
-                    name="tel"
-                    component="span"
-                    style={{ color: "red" }}
-                  />
-                </div>
-                <div className="input-div">
-                  <label className="input-label">Email</label>
-                  <Field type="email" name="email" />
-                  <ErrorMessage
-                    name="email"
-                    component="span"
-                    style={{ color: "red" }}
-                  />
-                </div>
+          <form onSubmit={handleSubmit}>
+            <div className="input-div">
+              <label className="input-label" htmlFor="name">
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formState.name}
+                onChange={handleInputChange}
+                onBlur={validateForm}
+                aria-label="Type Name"
+                required
+              />
+              {errors.name && (
+                <span style={{ color: "red" }}>Name is required</span>
+              )}
+            </div>
 
-                <h3 className="card-title">Reservation Information</h3>
+            <div className="input-div">
+              <label className="input-label" htmlFor="tel">
+                Telephone
+              </label>
+              <input
+                type="number"
+                id="tel"
+                name="tel"
+                value={formState.tel}
+                onChange={handleInputChange}
+                onBlur={validateForm}
+                aria-label="Type Telephone"
+                required
+              />
+              {errors.tel && (
+                <span style={{ color: "red" }}>Telephone is required</span>
+              )}
+            </div>
 
-                <div className="input-div">
-                  <label className="input-label" htmlFor="bookingDate">
-                    Date
-                  </label>
-                  <Field
-                    name="date"
-                    type="date"
-                    id="bookingDate"
-                    min={new Date().toISOString().split("T")[0]}
-                    className="input-field"
-                  />
-                  <ErrorMessage
-                    name="date"
-                    component="span"
-                    style={{ color: "red" }}
-                  />
-                </div>
-                <div className="input-div">
-                  <label className="input-label" htmlFor="bookingTime">
-                    Time
-                  </label>
-                  <Field
-                    as="select"
-                    name="time"
-                    id="bookingTime"
-                    className="input-field"
-                  >
-                    <option value="">Select a time</option>
-                    {availableTimes.map((time,i) => {
-                      return <option key={i} value={time}>{time}</option>
-                    })}
-                    {/* <option value="09:00">09:00</option>
-                    <option value="10:00">10:00</option>
-                    <option value="11:00">11:00</option>
-                    <option value="12:00">12:00</option>
-                    <option value="13:00">13:00</option>
-                    <option value="14:00">14:00</option>
-                    <option value="15:00">15:00</option>
-                    <option value="16:00">16:00</option>
-                    <option value="17:00">17:00</option>
-                    <option value="18:00">18:00</option> */}
-                  </Field>
-                  <ErrorMessage
-                    name="time"
-                    component="span"
-                    style={{ color: "red" }}
-                  />
-                </div>
-                <div className="input-div">
-                  <label className="input-label" htmlFor="bookingOccasion">
-                    Occasion
-                  </label>
-                  <Field
-                    as="select"
-                    name="occasion"
-                    id="bookingOccasion"
-                    className="input-field"
-                  >
-                    <option value="Casual">Casual</option>
-                    <option value="Birthday">Birthday</option>
-                    <option value="Anniversary">Anniversary</option>
-                  </Field>
-                  <ErrorMessage
-                    name="time"
-                    component="span"
-                    style={{ color: "red" }}
-                  />
-                </div>
-                <div className="input-container">
-                  <label className="input-label" htmlFor="bookingGuests">
-                    Guests
-                  </label>
-                  <Field
-                    name="guests"
-                    type="number"
-                    min="1"
-                    id="bookingGuests"
-                    className="input-number"
-                  />
-                  <ErrorMessage
-                    name="guests"
-                    component="span"
-                    style={{ color: "red" }}
-                  />
-                </div>
-                <h3 className="card-title">Details</h3>
-                <div className="input-container">
-                  <label className="input-label" htmlFor="bookingTerrace">
-                    Terrace
-                  </label>
-                  <Field
-                    name="terrace"
-                    type="checkbox"
-                    id="bookingTerrace"
-                    className="input-checkbox"
-                  />
-                </div>
-                <CallToAction className="booking-form__submit" text="Submit" type="submit"/>
-              </Form>
-            )}
-          </Formik>
+            <div className="input-div">
+              <label className="input-label" htmlFor="email">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formState.email}
+                onChange={handleInputChange}
+                onBlur={validateForm}
+                aria-label="Type Email"
+                required
+              />
+              {errors.email && (
+                <span style={{ color: "red" }}>Email is required</span>
+              )}
+            </div>
+
+            <h3 className="card-title">Reservation Information</h3>
+
+            <div className="input-div">
+              <label className="input-label" htmlFor="bookingDate" >
+                Date
+              </label>
+              <input
+                type="date"
+                id="bookingDate"
+                name="date"
+                min={new Date().toISOString().split("T")[0]}
+                value={formState.date}
+                onChange={handleInputChange}
+                onBlur={validateForm}
+                aria-label="Select Date"
+              />
+            </div>
+
+            <div className="input-div">
+              <label className="input-label" htmlFor="bookingTime">
+                Time
+              </label>
+              <select
+                id="bookingTime"
+                name="time"
+                value={formState.time}
+                onChange={handleInputChange}
+                onBlur={validateForm}
+                aria-label="Select Time"
+              >
+                <option value="">Select a time</option>
+                {availableTimes.map((time, i) => (
+                  <option key={i} value={time}>
+                    {time}
+                  </option>
+                ))}
+              </select>
+              {errors.time && (
+                <span style={{ color: "red" }}>Time is required</span>
+              )}
+            </div>
+
+            <div className="input-div">
+              <label className="input-label" htmlFor="bookingOccasion" >
+                Occasion
+              </label>
+              <select
+                id="bookingOccasion"
+                name="occasion"
+                value={formState.occasion}
+                onChange={handleInputChange}
+                aria-label="Select Occasion"
+              >
+                <option value="Casual">Casual</option>
+                <option value="Birthday">Birthday</option>
+                <option value="Anniversary">Anniversary</option>
+              </select>
+            </div>
+
+            <div className="input-container">
+              <label className="input-label" htmlFor="bookingGuests">
+                Guests
+              </label>
+              <input
+                className="input-number"
+                id="bookingGuests"
+                type="number"
+                name="guests"
+                min="1"
+                value={formState.guests}
+                onChange={handleInputChange}
+                aria-label="Type Number of Guests"
+              />
+              {errors.guests && (
+                <span style={{ color: "red" }}>{errors.guests}</span>
+              )}
+            </div>
+
+            <h3 className="card-title">Details</h3>
+
+            <div className="input-container">
+              <label className="input-label" htmlFor="bookingTerrace">
+                Terrace
+              </label>
+              <input
+                className="input-checkbox"
+                id="bookingTerrace"
+                type="checkbox"
+                name="terrace"
+                checked={formState.terrace}
+                onChange={handleInputChange}
+                aria-label="On click if you want in Terrace"
+              />
+            </div>
+
+            <CallToAction
+              text="Submit"
+              type="submit"
+              className="booking-form__submit"
+              aria-label="Sumit form"
+            />
+          </form>
         </div>
       </section>
     </>

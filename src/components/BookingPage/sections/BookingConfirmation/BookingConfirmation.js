@@ -1,16 +1,15 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { CallToAction } from "../../../CallToAction/CallToAction";
 import './BookingConfirmation.css'
+import { submitAPI } from "../../../../utils/api";
 
-function BookingConfirmation({isSumited}) {
-    const location = useLocation();
+function BookingConfirmation({formState}) {
     const navigate = useNavigate();
-    const data = location.state || {};
 
-
-
-    const handleClick = async () => {
-      if(isSumited){
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      const confirmation = submitAPI(formState);
+      if(confirmation){
         navigate('/booking/completed');
       }
     }
@@ -20,22 +19,22 @@ function BookingConfirmation({isSumited}) {
     return (
       <section className="booking-confirmation">
         <h2 className="subtitle">Reservation Summary</h2>
-        <p className="booking__name-confirmation">{data.name}</p>
-        <p className="booking__email-confirmation">{data.email}</p>
+        <p className="booking__name-confirmation">{formState.name}</p>
+        <p className="booking__email-confirmation">{formState.email}</p>
         <hr/>
         <div className="booking__confirmacion-table">
           <p>Contact</p>
-          <p className="lead-text">+52 {data.tel}</p>
+          <p className="lead-text">+52 {formState.tel}</p>
           <p>Date</p>
-          <p className="lead-text">{data.date}</p>
+          <p className="lead-text">{formState.date}</p>
           <p>Time</p>
-          <p className="lead-text">{data.time}</p>
+          <p className="lead-text">{formState.time}</p>
           <p>Occasion</p>
-          <p className="lead-text">{data.occasion}</p>
+          <p className="lead-text">{formState.occasion}</p>
           <p>Table for</p>
-          <p className="lead-text">{data.guests}</p>
+          <p className="lead-text">{formState.guests}</p>
           <p>Details</p>
-          {data.terrace ? <p className="lead-text">Terrace</p> : <p className="lead-text">No</p>}
+          {formState.terrace ? <p className="lead-text">Terrace</p> : <p className="lead-text">No</p>}
         </div>
         <hr/>
         <h3 className="description-text">
@@ -44,7 +43,7 @@ function BookingConfirmation({isSumited}) {
           guaranteed until you receive a confirmation. If we are unable to meet
           your preferred time, we will contact you with alternative options.
         </h3>
-        <CallToAction className="confirmation__button" text="Confirm" onclick={handleClick} />
+        <CallToAction type="submit" className="confirmation__button" text="Confirm" onclick={handleSubmit} />
       </section>
     );
   }

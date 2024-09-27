@@ -26,5 +26,4 @@ const submitAPI = function(formData) {
 };
 
 
-window.fetchAPI = fetchAPI;
-window.submitAPI = submitAPI;
+export {fetchAPI, submitAPI}

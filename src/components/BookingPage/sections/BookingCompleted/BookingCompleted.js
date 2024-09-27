@@ -8,7 +8,6 @@ import bookingCompleted from '../../../../assets/icons/Booking-completed.svg'
 function BookingCompleted({setIsSection}) {
   const navigate = useNavigate();
   const handleClick = () => {
-    alert('Reservation completed sucesfully')
     navigate('/');
   }
   useEffect(() => {
