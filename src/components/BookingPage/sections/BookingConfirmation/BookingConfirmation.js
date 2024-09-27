@@ -2,14 +2,19 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { CallToAction } from "../../../CallToAction/CallToAction";
 import './BookingConfirmation.css'
 
-function BookingConfirmation() {
+function BookingConfirmation({isSumited}) {
     const location = useLocation();
     const navigate = useNavigate();
     const data = location.state || {};
 
-    const handleClick = () => {
+
+
+    const handleClick = async () => {
+      if(isSumited){
         navigate('/booking/completed');
+      }
     }
+
 
 
     return (

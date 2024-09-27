@@ -1,17 +1,12 @@
-import { useNavigate } from "react-router-dom";
+
 import { CallToAction } from "../../../CallToAction/CallToAction";
 import bg from "../../../../assets/images/restaurant.jpg";
 import "./BookingForm.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-function BookingForm({availableTimes,setAvailableTimes}) {
-  const navigate = useNavigate();
+function BookingForm({availableTimes,submitForm,setAvailableTimes}) {
 
-
-  const handleSumit = (values) => {
-    navigate("/booking/confirmation", { state: values });
-  };
 
   const initialFormState = {
     name: "",
@@ -59,7 +54,7 @@ function BookingForm({availableTimes,setAvailableTimes}) {
           <Formik
             initialValues={initialFormState}
             validationSchema={validationSchema}
-            onSubmit={handleSumit}
+            onSubmit={submitForm}
           >
             {() => (
               <Form>
